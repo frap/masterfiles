@@ -4,11 +4,6 @@
 #  - common/global variables and classes here
 #
 ###############################################################################
-body file control
-{
-      inputs => { @(def.augments_inputs) };
-}
-
 bundle common def
 {
   classes:
@@ -231,7 +226,7 @@ bundle common def
 
       # Auto-load files in "services/autorun" and run bundles tagged "autorun".
       # Disabled by default!
-      "services_autorun" expression => "any";
+      "services_autorun" expression => "!any";
 
       # Internal CFEngine log files rotation
       "cfengine_internal_rotate_logs" expression => "any";
