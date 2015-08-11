@@ -1,0 +1,17 @@
+bundle agent ssh_autorun
+{
+
+meta:
+am_policy_hub::
+  "tags" slist => { "autorun" };
+
+ methods:
+   linux::
+     "SSH Host Key Fingerprint Inventory"
+     usebundle => inventory_ssh_host_key_fingerprints;
+
+   am_policy_hub.enterprise_edition::
+     "Inventory Duplicate SSH Host Key Fingerprints"
+     usebundle => inventory_duplicate_ssh_host_key_fingerprints;
+
+}

@@ -1,0 +1,18 @@
+{
+  "classes":
+    { "services_autorun": [ "any" ]   },
+
+
+  "inputs": [ "services/ssh/def.cf" ]
+
+  "vars": {
+    "acl": [ "192.168.66.*", "172.16.8", "192.168.33" ],
+    "domain": "red-elvis.net",
+    "mailto": "cfengine@red-elvis.net",
+    "mailfrom": "cfengine37@red-elvis.net",
+    "smtpserver": "smtp.red-elvis.net",
+    "input_name_patterns": [ ".*\\.cf",".*\\.dat",".*\\.txt", ".*\\.conf", ".*\\.mustache",
+                             ".*\\.sh", ".*\\.pl", ".*\\.py", ".*\\.rb",
+                             "cf_promises_release_id", ".*\\.json", ".*\\.yaml", ".*\\.js" ]
+  }
+}
