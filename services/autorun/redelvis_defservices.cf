@@ -1,0 +1,19 @@
+bundle agent redelvis_defservices
+{
+  meta:
+      "tags" slist => { "autorun" };
+
+  classes:
+
+    "dns_server":
+    or  => { "deb8", "kali"},
+    meta => { "inventory", "attribute_name=Roles" };
+
+ services:
+
+   windows::
+
+   "Telnet"
+      service_policy => "disable";
+
+}
