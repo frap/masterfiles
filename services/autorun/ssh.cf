@@ -6,7 +6,6 @@ am_policy_hub::
   "tags" slist => { "autorun" };
 
  methods:
-   linux::
      "SSH Host Key Fingerprint Inventory"
      usebundle => inventory_ssh_host_key_fingerprints;
 
