@@ -1,12 +1,15 @@
 {
   "classes":
-    { "services_autorun": [ "any" ]   },
+  { "services_autorun": [ "any" ],
+    "my_mac_role":      [ "darwin.*"],
+    "cfengine_internal_disable_agent_email": [ "enterprise_edition" ]
+  },
 
 
-  "inputs": [ "services/ssh/def.cf" ]
+  "inputs": [ "services/ssh/def.cf" ],
 
   "vars": {
-    "acl": [ "192.168.66.*", "172.16.8", "192.168.33" ],
+    "acl": [ ".*$(def.domain)", "192.168.66.*", "172.16.8.*", "192.168.33.*" ],
     "domain": "red-elvis.net",
     "mailto": "cfengine@red-elvis.net",
     "mailfrom": "cfengine37@red-elvis.net",

@@ -1,0 +1,7 @@
+[
+  {
+    "class_to_set" : "ruru_dns_hosts",
+    "regex"        : "ipv4_192_168_66_[223,225]",
+    "promisee"     : "name service"
+  }
+]
