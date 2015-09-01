@@ -1,0 +1,18 @@
+[
+  {
+    "package_name" : "nano",
+    "class" : "any",
+    "promisee" : "ruru default packages",
+    "package_version" : "0",
+    "package_policy" : "absent",
+    "architecture" : "amd64"
+  },
+  {
+    "package_name" : "bind9",
+    "class" : "dns_servers",
+    "promisee" : "ruru default packages",
+    "package_version" : "0",
+    "package_policy" : "present",
+    "architecture" : "amd64"
+  }
+]

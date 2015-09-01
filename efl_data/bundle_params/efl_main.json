@@ -1,10 +1,17 @@
 [
   {
-    "class" : "any"
+    "class" : "any",
     "promiser" : "set classes",
     "bundle" : "efl_class_classmatch",
     "ifelapsed" : "1",
     "parameter" : "${sys.inputdir}/efl_data/bundle_params/efl_classmatch.json",
     "promisee" : "cfengine policy"
-     }
+  },
+  {
+    "class"      :  "linux",
+    "promiser"   :  "ruru packages",
+    "bundle"     : "efl_packages_new",
+    "parameter"  : "${sys.inputdir}/efl_data/bundle_params/ruru_packages.json",
+    "promisee"   : "ruru policy"
+  }
 ]
