@@ -7,7 +7,7 @@ bundle common update_def
       "have_augments_file" expression => fileexists($(augments_file)), scope => "bundle";
 
   vars:
-      "current_version" string => "3.7.0";
+      "current_version" string => "3.7.1";
     any::
       "augments_file" string => "$(this.promise_dirname)/../../def.json";
 
@@ -71,7 +71,8 @@ bundle common update_def
     # Disabled by default
 
     enable_cfengine_enterprise_hub_ha::
-      "policy_servers" slist => {"$(sys.policy_hub)", @(ha_def.ips)};
+      "standby_servers" slist => filter("$(sys.policy_hub)", "ha_def.ips", false, true, 10);
+      "policy_servers" slist => { "$(sys.policy_hub)", "@(standby_servers)" };
 
     !enable_cfengine_enterprise_hub_ha::
       "policy_servers" slist => {"$(sys.policy_hub)"};

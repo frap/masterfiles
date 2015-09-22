@@ -13,7 +13,7 @@ bundle common update_def
         meta => { "augments_class", "derived_from=$(augments_file)" };
 
   vars:
-      "current_version" string => "3.7.0";
+      "current_version" string => "3.7.1";
     any::
       "augments_file" string => "$(this.promise_dirname)/../../def.json";
 
@@ -81,7 +81,8 @@ bundle common update_def
     # Disabled by default
 
     enable_cfengine_enterprise_hub_ha::
-      "policy_servers" slist => {"$(sys.policy_hub)", @(ha_def.ips)};
+      "standby_servers" slist => filter("$(sys.policy_hub)", "ha_def.ips", false, true, 10);
+      "policy_servers" slist => { "$(sys.policy_hub)", "@(standby_servers)" };
 
     !enable_cfengine_enterprise_hub_ha::
       "policy_servers" slist => {"$(sys.policy_hub)"};
@@ -148,6 +149,9 @@ bundle common update_def
       # Enable CFEngine Enterprise HA Policy
       "enable_cfengine_enterprise_hub_ha" expression => "!any";
       #"enable_cfengine_enterprise_hub_ha" expression => "enterprise_edition";
+
+      # Enable failover to node which is outside cluster
+      #"failover_to_replication_node_enabled" expression => "enterprise_edition";
 
   reports:
     DEBUG|DEBUG_update_def::
